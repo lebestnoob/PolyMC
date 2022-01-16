@@ -717,6 +717,8 @@ Application::Application(int &argc, char **argv) : QApplication(argc, argv)
         // paste.ee API key
         m_settings->registerSetting("PasteEEAPIKey", "multimc");
 
+        m_settings->registerSetting("CloseAfterLaunch", false);
+
         // Init page provider
         {
             m_globalSettingsProvider = std::make_shared<GenericPageProvider>(tr("Settings"));
