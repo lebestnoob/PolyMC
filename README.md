@@ -4,7 +4,7 @@
 #### This software is not related to PolyMC developers. **Don't create issues on the original repository if something goes wrong.**
 
 ## Pre-built binaries:
-- Windows / Linux / MacOS: https://nightly.link/lebestnoob/PolyMC/workflows/main/develop
+- Windows / Linux / MacOS: https://nightly.link/lebestnoob/PolyMC-Offline/workflows/main/develop
 
 [![CI](https://github.com/lebestnoob/PolyMC/actions/workflows/main.yml/badge.svg)](https://github.com/lebestnoob/PolyMC/actions/workflows/main.yml)
 
