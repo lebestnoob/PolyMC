@@ -1,3 +1,17 @@
+## **This is an offline version of PolyMC that lets you play the game without a Mojang account.**
+### This fork reimplements Pull Request [#50](https://github.com/PolyMC/PolyMC/pull/50) by @bexnoss to add the feature.
+
+#### This software is not related to PolyMC developers and provided without any warranty. Please don't bomb PolyMC developers if something gets wrong using this launcher.
+
+## Pre-built binaries:
+- Windows / Linux / MacOS: https://nightly.link/
+
+To update the launcher replace all replaceable files and folders with the newer one from the above link.
+
+In case you are using MacOS/Linux then an additional step may be required to make the launcher executable. You can make it executable by using the command `chmod +x polymc` in the terminal.
+
+# Details about the ORIGINAL launcher below:
+
 <p align="center">
   <img src="./program_info/polymc-header-black.svg#gh-light-mode-only" alt="PolyMC logo"/>
   <img src="./program_info/polymc-header.svg#gh-dark-mode-only" alt="PolyMC logo"/>
