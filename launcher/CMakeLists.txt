@@ -37,6 +37,10 @@ set(CORE_SOURCES
     InstanceImportTask.h
     InstanceImportTask.cpp
 
+    # Mod downloading task
+    ModDownloadTask.h
+    ModDownloadTask.cpp
+
     # Use tracking separate from memory management
     Usable.h
 
@@ -510,10 +514,17 @@ set(FLAME_SOURCES
     # Flame
     modplatform/flame/FlamePackIndex.cpp
     modplatform/flame/FlamePackIndex.h
+    modplatform/flame/FlameModIndex.cpp
+    modplatform/flame/FlameModIndex.h
     modplatform/flame/PackManifest.h
     modplatform/flame/PackManifest.cpp
     modplatform/flame/FileResolvingTask.h
     modplatform/flame/FileResolvingTask.cpp
+)
+
+set(MODRINTH_SOURCES
+    modplatform/modrinth/ModrinthPackIndex.cpp
+    modplatform/modrinth/ModrinthPackIndex.h
 )
 
 set(MODPACKSCH_SOURCES
@@ -570,6 +581,7 @@ set(LOGIC_SOURCES
     ${ICONS_SOURCES}
     ${FTB_SOURCES}
     ${FLAME_SOURCES}
+    ${MODRINTH_SOURCES}
     ${MODPACKSCH_SOURCES}
     ${TECHNIC_SOURCES}
     ${ATLAUNCHER_SOURCES}
@@ -711,8 +723,8 @@ SET(LAUNCHER_SOURCES
     ui/pages/global/LauncherPage.h
     ui/pages/global/ProxyPage.cpp
     ui/pages/global/ProxyPage.h
-    ui/pages/global/PastePage.cpp
-    ui/pages/global/PastePage.h
+    ui/pages/global/APIPage.cpp
+    ui/pages/global/APIPage.h
 
     # GUI - platform pages
     ui/pages/modplatform/VanillaPage.cpp
@@ -743,6 +755,10 @@ SET(LAUNCHER_SOURCES
     ui/pages/modplatform/flame/FlameModel.h
     ui/pages/modplatform/flame/FlamePage.cpp
     ui/pages/modplatform/flame/FlamePage.h
+    ui/pages/modplatform/flame/FlameModModel.cpp
+    ui/pages/modplatform/flame/FlameModModel.h
+    ui/pages/modplatform/flame/FlameModPage.cpp
+    ui/pages/modplatform/flame/FlameModPage.h
 
     ui/pages/modplatform/technic/TechnicModel.cpp
     ui/pages/modplatform/technic/TechnicModel.h
@@ -751,6 +767,11 @@ SET(LAUNCHER_SOURCES
 
     ui/pages/modplatform/ImportPage.cpp
     ui/pages/modplatform/ImportPage.h
+
+    ui/pages/modplatform/modrinth/ModrinthModel.cpp
+    ui/pages/modplatform/modrinth/ModrinthModel.h
+    ui/pages/modplatform/modrinth/ModrinthPage.cpp
+    ui/pages/modplatform/modrinth/ModrinthPage.h
 
     # GUI - dialogs
     ui/dialogs/AboutDialog.cpp
@@ -791,6 +812,8 @@ SET(LAUNCHER_SOURCES
     ui/dialogs/VersionSelectDialog.h
     ui/dialogs/SkinUploadDialog.cpp
     ui/dialogs/SkinUploadDialog.h
+    ui/dialogs/ModDownloadDialog.cpp
+    ui/dialogs/ModDownloadDialog.h
 
 
     # GUI - widgets
@@ -848,7 +871,7 @@ qt5_wrap_ui(LAUNCHER_UI
     ui/pages/global/AccountListPage.ui
     ui/pages/global/JavaPage.ui
     ui/pages/global/LauncherPage.ui
-    ui/pages/global/PastePage.ui
+    ui/pages/global/APIPage.ui
     ui/pages/global/ProxyPage.ui
     ui/pages/global/MinecraftPage.ui
     ui/pages/global/ExternalToolsPage.ui
@@ -867,10 +890,12 @@ qt5_wrap_ui(LAUNCHER_UI
     ui/pages/modplatform/atlauncher/AtlPage.ui
     ui/pages/modplatform/VanillaPage.ui
     ui/pages/modplatform/flame/FlamePage.ui
+    ui/pages/modplatform/flame/FlameModPage.ui
     ui/pages/modplatform/legacy_ftb/Page.ui
     ui/pages/modplatform/ImportPage.ui
     ui/pages/modplatform/ftb/FtbPage.ui
     ui/pages/modplatform/technic/TechnicPage.ui
+    ui/pages/modplatform/modrinth/ModrinthPage.ui
     ui/widgets/InstanceCardWidget.ui
     ui/widgets/CustomCommands.ui
     ui/widgets/MCModInfoFrame.ui
@@ -915,9 +940,8 @@ endif()
 add_library(Launcher_logic STATIC ${LOGIC_SOURCES} ${LAUNCHER_SOURCES} ${LAUNCHER_UI} ${LAUNCHER_RESOURCES})
 target_link_libraries(Launcher_logic
     systeminfo
-    Launcher_quazip
     Launcher_classparser
-    ${NBT_NAME}
+    nbt++
     ${ZLIB_LIBRARIES}
     optional-bare
     tomlc99
@@ -933,9 +957,9 @@ target_link_libraries(Launcher_logic
 )
 target_link_libraries(Launcher_logic
     Launcher_iconfix
-    ${QUAZIP_LIBRARIES}
+    QuaZip::QuaZip
     hoedown
-    Launcher_rainbow
+    PolyMC_rainbow
     LocalPeer
 )
 

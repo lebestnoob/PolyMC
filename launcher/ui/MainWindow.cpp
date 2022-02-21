@@ -588,7 +588,7 @@ public:
         actionExportInstance = TranslatedAction(MainWindow);
         actionExportInstance->setObjectName(QStringLiteral("actionExportInstance"));
         actionExportInstance.setTextId(QT_TRANSLATE_NOOP("MainWindow", "Export Instance"));
-        // FIXME: missing tooltip
+        actionExportInstance.setTooltipId(QT_TRANSLATE_NOOP("MainWindow", "Export the selected instance as a zip file."));
         all_actions.append(&actionExportInstance);
         instanceToolBar->addAction(actionExportInstance);
 
@@ -1687,7 +1687,7 @@ void MainWindow::on_actionReportBug_triggered()
 
 void MainWindow::on_actionMoreNews_triggered()
 {
-    DesktopServices::openUrl(QUrl("https://multimc.org/posts.html"));
+    DesktopServices::openUrl(QUrl(BuildConfig.NEWS_OPEN_URL));
 }
 
 void MainWindow::newsButtonClicked()
@@ -1699,7 +1699,7 @@ void MainWindow::newsButtonClicked()
     }
     else
     {
-        DesktopServices::openUrl(QUrl("https://multimc.org/posts.html"));
+        DesktopServices::openUrl(QUrl(BuildConfig.NEWS_OPEN_URL));
     }
 }
 

@@ -1,7 +1,6 @@
 { lib
 , mkDerivation
 , fetchFromGitHub
-, makeDesktopItem
 , cmake
 , ninja
 , jdk8
@@ -73,27 +72,24 @@ mkDerivation rec {
     "-DLauncher_LAYOUT=lin-system"
   ];
 
-  desktopItem = makeDesktopItem {
-    name = "polymc";
-    exec = "polymc";
-    icon = "polymc";
-    desktopName = "PolyMC";
-    genericName = "Minecraft Launcher";
-    comment = "A custom launcher for Minecraft";
-    categories = "Game;";
-    extraEntries = ''
-      Keywords=game;Minecraft;
-    '';
-  };
-
   postInstall = ''
-    install -Dm644 ../launcher/resources/multimc/scalable/launcher.svg $out/share/pixmaps/polymc.svg
-    install -Dm644 ${desktopItem}/share/applications/polymc.desktop $out/share/applications/org.polymc.PolyMC.desktop
-
     # xorg.xrandr needed for LWJGL [2.9.2, 3) https://github.com/LWJGL/lwjgl/issues/128
     wrapProgram $out/bin/polymc \
       "''${qtWrapperArgs[@]}" \
       --set GAME_LIBRARY_PATH ${gameLibraryPath} \
-      --prefix PATH : ${lib.makeBinPath [ xorg.xrandr jdk ]}
+      --prefix PATH : ${lib.makeBinPath [ xorg.xrandr ]}
   '';
+
+  meta = with lib; {
+    homepage = "https://polymc.org/";
+    description = "A free, open source launcher for Minecraft";
+    longDescription = ''
+      Allows you to have multiple, separate instances of Minecraft (each with
+      their own mods, texture packs, saves, etc) and helps you manage them and
+      their associated options with a simple interface.
+    '';
+    platforms = platforms.unix;
+    license = licenses.gpl3Plus;
+    maintainers = with maintainers; [ starcraft66 kloenk ];
+  };
 }
