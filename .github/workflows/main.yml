@@ -1,12 +1,12 @@
 # Build script adapted from https://github.com/AfoninZ/MultiMC5-Cracked/blob/develop/.github/workflows/main.yml
 
-name: CI
+name: Release
 
 on:
   push:
-    branches: [ develop ]
+    branches: [develop]
   pull_request:
-    branches: [ develop ]
+    branches: [develop]
   workflow_dispatch:
 
 jobs:
@@ -17,7 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2.4.0
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
 
       - name: Install Dependencies
         run: |
@@ -52,7 +52,7 @@ jobs:
           cd build
           make install
           chmod +x /home/runner/PolyMC/PolyMC/PolyMC
-          chmod -R +x /home/runner/PolyMC/PolyMC/bin/ 
+          chmod -R +x /home/runner/PolyMC/PolyMC/bin/
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2.3.1
@@ -67,7 +67,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2.4.0
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
 
       - name: Cache Qt
         uses: actions/cache@v2.1.7
@@ -111,8 +111,8 @@ jobs:
       - name: Setup JDK
         uses: actions/setup-java@v2.5.0
         with:
-          distribution: 'zulu'
-          java-version: '8'
+          distribution: "zulu"
+          java-version: "8"
           architecture: x86
 
       - name: Setup zlib
@@ -205,7 +205,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2.4.0
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
 
       - name: Cache Dependencies
         uses: actions/cache@v2.1.7

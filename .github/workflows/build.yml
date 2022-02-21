@@ -1,7 +1,6 @@
-name: build_portable
+name: Debug
 
-on:
-  [push, pull_request, workflow_dispatch]
+on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
@@ -9,7 +8,6 @@ jobs:
       fail-fast: false
       matrix:
         include:
-
           - os: ubuntu-20.04
             qt_version: 5.15.2
             qt_host: linux
@@ -46,7 +44,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          submodules: 'true'
+          submodules: "true"
 
       # We need to do this here because it inexplicably fails if we split the step
       - name: Download and install OpenSSL libs on Windows
@@ -62,7 +60,7 @@ jobs:
       - name: Install OpenJDK
         uses: AdoptOpenJDK/install-jdk@v1
         with:
-          version: '17'
+          version: "17"
 
       - name: Cache Qt
         id: cache-qt
