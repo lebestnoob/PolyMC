@@ -145,7 +145,7 @@ jobs:
         if: matrix.app_image == true
         shell: bash
         run: |
-          export OUTPUT="PolyMC-${{ runner.os }}-${{ env.VERSION }}-${{ inputs.build_type }}-x86_64.AppImage"
+          export OUTPUT="PolyMC-${{ runner.os }}-${{ inputs.build_type }}-x86_64.AppImage"
 
           chmod +x linuxdeploy-*.AppImage
 
