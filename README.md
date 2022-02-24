@@ -12,21 +12,25 @@ This is a **fork** of the MultiMC Launcher and not endorsed by MultiMC. The Poly
 
 - Last build status:
 
-[![CI](https://github.com/lebestnoob/PolyMC/actions/workflows/main.yml/badge.svg)](https://github.com/lebestnoob/PolyMC/actions/workflows/main.yml)
+[![CI](https://github.com/lebestnoob/PolyMC/actions/workflows/main.yml/badge.svg)](https://github.com/lebestnoob/PolyMC/actions/workflows/trigger_builds.yml)
 
 ## 🐧 Linux
 
 ### <img src="https://www.vectorlogo.zone/logos/linuxfoundation/linuxfoundation-icon.svg" height="20" alt=""/> Cross-distro packages
 
-[Linux (64-bit)](https://nightly.link/lebestnoob/PolyMC-Offline/workflows/main/develop/polymc-offline-lin64.zip) - this is a portable package, you can extract it anywhere and run it. This package needs testing and may not run on all distros. You may need to manually make the binary executable by running the command `chmod +x polymc` in the terminal.
+<a href="https://nightly.link/lebestnoob/PolyMC-Offline/workflows/trigger_builds/develop/PolyMC-Linux-Release-x86_64.AppImage.zip"><img src="https://docs.appimage.org/_images/download-appimage-banner.svg" width="240" alt="Download as AppImage" /></a>
+
+- Must remove .zip from file name
+
+[Linux (64-bit)](https://nightly.link/lebestnoob/PolyMC-Offline/workflows/trigger_builds/develop/PolyMC-Linux-Release.zip) - this is a portable package, you can extract it anywhere and run it. This package needs testing and may not run on all distros. You may need to manually make the binary executable by running the command `chmod +x polymc` in the terminal.
 
 ## <img src="https://www.vectorlogo.zone/logos/microsoft/microsoft-icon.svg" height="20" /> Windows
 
-[Windows (32-bit)](https://nightly.link/lebestnoob/PolyMC-Offline/workflows/main/develop/polymc-offline-win32.zip) - this is a portable package, you can extract it anywhere and run it. This package needs testing.
+[Windows (32-bit)](https://nightly.link/lebestnoob/PolyMC-Offline/workflows/trigger_builds/develop/PolyMC-Windows-Release.zip) - this is a portable package, you can extract it anywhere and run it. This package needs testing.
 
 ## <img src="https://www.vectorlogo.zone/logos/apple/apple-tile.svg" height="20" /> MacOS
 
-[MacOS Binary (64-bit)](https://nightly.link/lebestnoob/PolyMC-Offline/workflows/main/develop/polymc-offline-osx64.zip) - this is a portable package, you can extract it anywhere and run it. This package needs testing. You may need to manually make the binary executable by running the command `chmod +x polymc` in the terminal.
+[MacOS Binary (64-bit)](https://nightly.link/lebestnoob/PolyMC-Offline/workflows/trigger_builds/develop/PolyMC-macOS-Release.zip) - this is a portable package, you can extract it anywhere and run it. This package needs testing. You may need to manually make the binary executable by running the command `chmod +x polymc` in the terminal.
 
 ## Development Builds
 

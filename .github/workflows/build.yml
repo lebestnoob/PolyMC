@@ -195,26 +195,26 @@ jobs:
         if: runner.os == 'Linux' && matrix.app_image != true
         uses: actions/upload-artifact@v2
         with:
-          name: PolyMC-${{ runner.os }}-${{ env.VERSION }}-${{ inputs.build_type }}
+          name: PolyMC-${{ runner.os }}-${{ inputs.build_type }}
           path: PolyMC.tar.gz
 
       - name: Upload AppImage for Linux
         if: matrix.app_image == true
         uses: actions/upload-artifact@v2
         with:
-          name: PolyMC-${{ runner.os }}-${{ env.VERSION }}-${{ inputs.build_type }}-x86_64.AppImage
-          path: PolyMC-${{ runner.os }}-${{ env.VERSION }}-${{ inputs.build_type }}-x86_64.AppImage
+          name: PolyMC-${{ runner.os }}-${{ inputs.build_type }}-x86_64.AppImage
+          path: PolyMC-${{ runner.os }}-${{ inputs.build_type }}-x86_64.AppImage
 
       - name: Upload package for Windows
         if: runner.os == 'Windows'
         uses: actions/upload-artifact@v2
         with:
-          name: PolyMC-${{ runner.os }}-${{ env.VERSION }}-${{ inputs.build_type }}
+          name: PolyMC-${{ runner.os }}-${{ inputs.build_type }}
           path: ${{ env.INSTALL_DIR }}/**
 
       - name: Upload package for macOS
         if: runner.os == 'macOS'
         uses: actions/upload-artifact@v2
         with:
-          name: PolyMC-${{ runner.os }}-${{ env.VERSION }}-${{ inputs.build_type }}
+          name: PolyMC-${{ runner.os }}-${{ inputs.build_type }}
           path: PolyMC.tar.gz
