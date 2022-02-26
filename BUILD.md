@@ -12,8 +12,8 @@
 Clone the source code using git and grab all the submodules:
 
 ```
-git clone https://github.com/PolyMC/PolyMC.git
-cd PolyMC
+git clone https://github.com/lebestnoob/PolyMC-Offline.git
+cd PolyMC-Offline
 git submodule init
 git submodule update
 ```
@@ -25,6 +25,7 @@ The rest of the documentation assumes you have already cloned the repository.
 Getting the project to build and run on Linux is easy if you use any modern and up-to-date linux distribution. If you're using FreeBSD you should use 13.0-RELEASE or newer.
 
 ## Build dependencies
+
 - A C++ compiler capable of building C++11 code.
 - Qt Development tools 5.6 or newer (`qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools libqt5core5a libqt5network5 libqt5gui5` on Debian-based system)
 - cmake 3.1 or newer (`cmake` on Debian-based system)
@@ -248,7 +249,7 @@ zlib1.dll
 ### Compile from command line on Windows
 
 1. If you installed Qt with the web installer, there should be a shortcut called `Qt 5.4 for Desktop (MinGW 4.9 32-bit)` in the Start menu on Windows 7 and 10. Best way to find it is to search for it. Do note you cannot just use cmd.exe, you have to use the shortcut, otherwise the proper MinGW software will not be on the PATH.
-2. Once that is open, change into your user directory, and clone PolyMC by doing `git clone --recursive https://github.com/PolyMC/PolyMC.git`, and change directory to the folder you cloned to.
+2. Once that is open, change into your user directory, and clone PolyMC by doing `git clone --recursive https://github.com/lebestnoob/PolyMC-Offline.git`, and change directory to the folder you cloned to.
 3. Make a build directory, and change directory to the directory and do `cmake -G "MinGW Makefiles" -DCMAKE_INSTALL_PREFIX=C:\Path\that\makes\sense\for\you`. By default, it will install to C:\Program Files (x86), which you might not want, if you want a local installation. If you want to install it to that directory, make sure to run the command window as administrator.
 4. Do `mingw32-make -jX`, where X is the number of cores your CPU has plus one.
 5. Now to wait for it to compile. This could take some time. Hopefully it compiles properly.
@@ -304,6 +305,7 @@ need to be fixed with `codesign -fs -`.
 Tested on OpenBSD 7.0-alpha i386, on older should work too
 
 ## Build dependencies
+
 - A C++ compiler capable of building C++11 code (included in base system)
 - Qt Development tools 5.6 or newer ([meta/qt5](https://openports.se/meta/qt5))
 - cmake 3.1 or newer ([devel/cmake](https://openports.se/devel/cmake))
