@@ -1,5 +1,7 @@
 # PolyMC-Offline
 
+## This repository has been archived.
+
 ### This fork reverts commit `e0a04c50316089b9a443355394c5babf39a1771d` on pull request [#113](https://github.com/PolyMC/PolyMC/pull/113) by [@NyaomiDEV](https://github.com/NyaomiDEV) to implement offline accounts.
 
 PolyMC-Offline is a custom launcher for Minecraft that focuses on predictability, long term stability and simplicity. **This is an offline version of PolyMC that lets you play the game without a Mojang account.**
